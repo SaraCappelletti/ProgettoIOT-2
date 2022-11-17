@@ -17,7 +17,7 @@ class Task{
         bool updateAndCheckTime(int basePeriod){
             timeElapsed += basePeriod;
             if(timeElapsed >= myPeriod){
-                timeElpsed = 0;
+                timeElapsed = 0;
                 return true;
             } else {
                 return false;

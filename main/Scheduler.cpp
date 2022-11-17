@@ -2,7 +2,7 @@
 
 void Scheduler::init(int basePeriod){
     this->basePeriod = basePeriod;
-    timer.setUpPeriod(basePeriod);
+    timer.setupPeriod(basePeriod);
     nTasks = 0;
 }
 

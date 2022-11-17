@@ -2,7 +2,7 @@
 #include"LaTask.h"
 
 Timer timer;
-LaTask latask(2);
+LaTask laTask(2);
 
 void setup(){
     laTask.init();
