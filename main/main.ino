@@ -1,15 +1,18 @@
 #include"Timer.h"
 #include"LaTask.h"
+#include "Scheduler.h"
 
-Timer timer;
-LaTask laTask(2);
+Scheduler sched;
 
 void setup(){
-    laTask.init();
-    timer.setupPeriod(500);
+    
+  sched.init(50);
+  
+  Task* t0 = new LaTask(13);
+  t0->init(500);
+  sched.addTask(t0);
 }
 
 void loop(){
-    timer.waitForNextTick();
-    laTask.tick();
+  sched.schedule();
 }

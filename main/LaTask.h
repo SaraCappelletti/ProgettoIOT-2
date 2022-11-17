@@ -2,15 +2,16 @@
 #define __LATASK__
 
 #include "Task.h"
+#include "Led.h"
 
 class LaTask: public Task{
-    int pin;
-    enum{ON, OFF} ledState;
+  int pin;
+  Led *led;
 
-    public:
-        LaTask(int pin);
-        void init();
-        void tick();
+  public:
+    LaTask(int pin);
+    void init(int period);
+    void tick();
 };
 
 #endif

@@ -1,25 +1,23 @@
 #include "LaTask.h"
 #include <stdio.h>
 
-LaTask::LaTask(int pin){
-    this->pin = pin;
+LaTask::LaTask(int pin) {
+  this->pin = pin;
 }
 
-void LaTask::init(){
-    ledState = OFF;
+void LaTask::init(int period) {
+  Task::init(period);
+  led = new Led(pin);
 }
 
-void LaTask::tick(){
-    switch (ledState)
-    {
-    case OFF:
-        printf("Accendo");
-        ledState = ON;
-        break;
-    
-    case ON:
-        printf("Spengo");
-        ledState = OFF;
-        break;
-    }
+void LaTask::tick() {
+  switch (Scheduler::getState()) {
+  case ALARM:
+    printf("Alarm");
+    break;
+  
+  default:
+    printf("Spengo");
+    break;
+  }
 }
