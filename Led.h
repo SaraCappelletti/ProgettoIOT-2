@@ -1,16 +1,19 @@
 #ifndef __LED__
 #define __LED__
 
+#include "Arduino.h"
+
 class Led
 {
     const int pin;
-    enum {ON, OFF, BLINK} state;
+    long unsigned lastTime = 0.0;
+    enum {ON, OFF} state = OFF;
     
     public:
         Led(const int pin); 
         void turnOn();
         void turnOff();
-        void setBlinking(const long int unsigned timeOn, const long int unsigned timeOff);
+        void blinking(const long unsigned timeOn, const long unsigned timeOff);
 };
 
 #endif
