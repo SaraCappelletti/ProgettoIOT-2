@@ -7,7 +7,7 @@
 
 class LaTask: public Task{
   int pin;
-  Led *led;
+  Led led;
 
   public:
     LaTask(int pin);
