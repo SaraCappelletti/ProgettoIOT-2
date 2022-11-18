@@ -1,6 +1,7 @@
 #ifndef __LATASK__
 #define __LATASK__
 
+#include "Scheduler.h"
 #include "Task.h"
 #include "Led.h"
 
