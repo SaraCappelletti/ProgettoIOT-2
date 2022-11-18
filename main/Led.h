@@ -3,8 +3,7 @@
 
 #include "Arduino.h"
 
-class Led
-{
+class Led {
   const int pin;
   long unsigned lastTime = 0.0;
   enum {ON, OFF} state = OFF;

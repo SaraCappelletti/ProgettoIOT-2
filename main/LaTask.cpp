@@ -1,7 +1,7 @@
 #include "LaTask.h"
 #include <stdio.h>
 
-LaTask::LaTask(int pin) : led(pin){
+LaTask::LaTask(int pin) : led(pin) {
   this->pin = pin;
 }
 

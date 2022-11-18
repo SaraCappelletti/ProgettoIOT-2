@@ -4,7 +4,7 @@
 
 Scheduler sched;
 
-void setup(){
+void setup() {
     
   sched.init(50);
   
@@ -13,6 +13,6 @@ void setup(){
   sched.addTask(t0);
 }
 
-void loop(){
+void loop() {
   sched.schedule();
 }

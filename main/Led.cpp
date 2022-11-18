@@ -9,7 +9,7 @@ void Led::turnOn() {
   }
 }
 
-void Led::turnOff(){
+void Led::turnOff() {
   if (this->state != Led::OFF) {
     this->state = Led::OFF;
     digitalWrite(pin, LOW);

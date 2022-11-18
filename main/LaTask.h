@@ -5,7 +5,7 @@
 #include "Task.h"
 #include "Led.h"
 
-class LaTask: public Task{
+class LaTask: public Task {
   int pin;
   Led led;
 
