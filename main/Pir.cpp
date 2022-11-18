@@ -2,11 +2,11 @@
 
 Pir::Pir(const int pin) : pin(pin) { Pir::time = millis(); };
 
-bool Pir::read() {
+float Pir::read() {
   if (!calibrated) {
     if (millis() - time < CALIBRATION_TIME) {
-      return false;
+      return 0.0;
     }
   }
-  return digitalRead(pin) == HIGH;
+  return digitalRead(pin) == HIGH ? 0.0 : 1.0;
 }
