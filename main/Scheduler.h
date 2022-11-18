@@ -8,7 +8,7 @@
 enum State {NORMAL, PREALARM, ALARM};
 
 class Scheduler{
-   static State state;
+  static State state;
 
   int basePeriod;
   int nTasks;
