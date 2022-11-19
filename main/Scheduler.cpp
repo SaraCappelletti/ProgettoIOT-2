@@ -1,6 +1,6 @@
 #include "Scheduler.h"
 
-extern State Scheduler::state;
+State Scheduler::state;
 
 void Scheduler::init(int basePeriod) {
   this->basePeriod = basePeriod;
