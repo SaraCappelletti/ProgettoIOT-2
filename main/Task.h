@@ -1,28 +1,21 @@
 #ifndef __TASK__
 #define __TASK__
 
-class Task {
+#include "Component.h"
 
+#define MAX_COMPONENTS 10
+
+class Task {
   int myPeriod;
   int timeElapsed;
-
+  int numComponents;
+  Component components[MAX_COMPONENTS];
+  
   public:
-    virtual void init(int period) {
-      myPeriod = period;
-      timeElapsed = 0;
-    }
-
+    virtual void init(const int period);
     virtual void tick() = 0;
-
-    bool updateAndCheckTime(int basePeriod) {
-      timeElapsed += basePeriod;
-      if(timeElapsed >= myPeriod) {
-        timeElapsed = 0;
-        return true;
-      } else {
-        return false;
-      }
-    }
+    bool updateAndCheckTime(const int basePeriod);
+    void addComponent(const Component component);
 };
 
 #endif

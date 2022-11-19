@@ -11,12 +11,12 @@ void LaTask::init(int period) {
 
 void LaTask::tick() {
   switch (Scheduler::getState()) {
-  case State::ALARM:
-    printf("Alarm");
-    break;
-  
-  default:
-    printf("Spengo");
-    break;
+    case State::ALARM: {
+      break;
+    }
+    default: {
+      if(1)
+      break;
+    }
   }
 }
