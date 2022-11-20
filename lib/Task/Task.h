@@ -9,7 +9,7 @@ class Task {
   int myPeriod;
   int timeElapsed;
   int numComponents;
-  Component* components[MAX_COMPONENTS];
+  const Component* components[MAX_COMPONENTS];
   
   public:
     virtual void init(const int period);
