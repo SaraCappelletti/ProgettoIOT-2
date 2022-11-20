@@ -2,11 +2,11 @@
 #define __PIR__
 
 #include "Arduino.h"
-#include "Component.h"
+#include "Sensor.h"
 
 #define CALIBRATION_TIME 100000 // milliseconds
 
-class Pir : Component {
+class Pir : Sensor {
   const int pin;
   long unsigned time = 0.0;
   bool calibrated = false;
