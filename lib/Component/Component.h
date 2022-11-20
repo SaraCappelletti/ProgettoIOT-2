@@ -2,6 +2,7 @@
 #define __COMPONENT__
 
 class Component {
+protected:
   const int pin;
 
 public:
