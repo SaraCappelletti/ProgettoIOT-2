@@ -4,9 +4,8 @@
 class Component {
   const int pin;
 
-  public:
-    Component(int pin);
-
+public:
+  Component(const int pin) : pin(pin) {};
 };
 
 #endif
