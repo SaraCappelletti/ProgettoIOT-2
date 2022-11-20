@@ -1,6 +1,6 @@
 #include "Led.h"
 
-Led::Led(const int pin) : pin(pin) {};
+Led::Led(const int pin) : Component(pin) {};
 
 void Led::turnOn() {
   if (this->state != Led::ON) {
