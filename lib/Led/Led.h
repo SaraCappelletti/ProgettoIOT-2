@@ -5,7 +5,6 @@
 #include "Component.h"
 
 class Led : Component {
-  const int pin;
   long unsigned lastTime = 0.0;
   enum {ON, OFF} state = OFF;
   
