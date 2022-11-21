@@ -4,7 +4,7 @@
 #include "Arduino.h"
 #include "Component.h"
 
-class Led : protected Component {
+class Led : public Component {
   long unsigned lastTime = 0.0;
   enum {ON, OFF} state = OFF;
   

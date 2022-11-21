@@ -6,7 +6,7 @@
 
 #define CALIBRATION_TIME 100000 // milliseconds
 
-class Pir : protected Sensor {
+class Pir : public Sensor {
   long unsigned time = 0.0;
   bool calibrated = false;
   

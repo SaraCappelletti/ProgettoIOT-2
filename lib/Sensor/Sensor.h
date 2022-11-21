@@ -3,9 +3,9 @@
 
 #include "Component.h"
 
-class Sensor : Component {
+class Sensor : public Component {
 public:
-    Sensor(const int pin) : Component(pin) {};
+    Sensor(const int pin) : Component(pin) {}
     template <class T>
     T read();
 };

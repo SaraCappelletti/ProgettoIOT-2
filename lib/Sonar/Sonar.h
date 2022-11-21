@@ -4,7 +4,7 @@
 #include "Arduino.h"
 #include "Sensor.h"
 
-class Sonar : protected Sensor {
+class Sonar : public Sensor {
   const float vs = 331.45 + 0.62*20;
   const int echoPin;
 

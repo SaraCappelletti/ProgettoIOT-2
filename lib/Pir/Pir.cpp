@@ -1,6 +1,8 @@
 #include "Pir.h"
 
-Pir::Pir(const int pin) : Sensor(pin) { Pir::time = millis(); };
+Pir::Pir(const int pin) : Sensor(pin) {
+  Pir::time = millis();
+}
 
 bool Pir::read() {
   if (!calibrated) {

@@ -2,8 +2,9 @@
 
 State Scheduler::state;
 
-void Scheduler::init(const unsigned long basePeriod) {
-  this->basePeriod = basePeriod;
+Scheduler::Scheduler(const unsigned long basePeriod) : basePeriod(basePeriod) {}
+
+void Scheduler::init() {
   timer.setupPeriod(basePeriod);
   nTasks = 0;
 }

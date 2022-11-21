@@ -10,13 +10,14 @@ enum State {NORMAL, PREALARM, ALARM};
 class Scheduler {
   static State state;
 
-  unsigned long basePeriod;
+  const unsigned long basePeriod;
   int nTasks;
   const Task* taskList[MAXNTASK];
   Timer timer;
 
 public:
-  void init(const unsigned long basePeriod);
+  Scheduler(const unsigned long basePeriod);
+  void init();
   virtual bool addTask(const Task* const task);
   virtual void schedule();
   static State getState();

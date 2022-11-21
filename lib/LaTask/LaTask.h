@@ -6,12 +6,9 @@
 #include "Led.h"
 
 class LaTask : public Task {
-  int pin;
-  Led led;
-
   public:
-    LaTask(const int pin);
-    void init(const int period);
+    LaTask(const int pin, const unsigned long period);
+    void init();
     void tick();
 };
 

@@ -1,8 +1,9 @@
 #include "Task.h"
 #include "Component.h"
 
-void Task::init(const unsigned long period) {
-  myPeriod = period;
+Task::Task(const unsigned long period) : myPeriod(period) {}
+
+void Task::init() {
   timeElapsed = 0;
 }
 
