@@ -2,14 +2,14 @@
 #include"LaTask.h"
 #include "Scheduler.h"
 
-Scheduler sched;
+Scheduler sched(50);
 
 void setup() {
     
-  sched.init(50);
+  sched.init();
   
-  Task* t0 = new LaTask(13);
-  t0->init(500);
+  Task* t0 = new LaTask(13, 500);
+  t0->init();
   sched.addTask(t0);
 }
 
