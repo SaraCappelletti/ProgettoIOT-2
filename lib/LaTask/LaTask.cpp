@@ -1,11 +1,11 @@
 #include "LaTask.h"
 #include <stdio.h>
 
-LaTask::LaTask(int pin) : led(pin) {
+LaTask::LaTask(const int pin) : led(pin) {
   this->pin = pin;
 }
 
-void LaTask::init(int period) {
+void LaTask::init(const int period) {
   Task::init(period);
 }
 

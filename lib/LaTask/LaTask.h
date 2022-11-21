@@ -5,13 +5,13 @@
 #include "Task.h"
 #include "Led.h"
 
-class LaTask: public Task {
+class LaTask : public Task {
   int pin;
   Led led;
 
   public:
-    LaTask(int pin);
-    void init(int period);
+    LaTask(const int pin);
+    void init(const int period);
     void tick();
 };
 
