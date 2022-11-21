@@ -2,13 +2,13 @@
 
 State Scheduler::state;
 
-void Scheduler::init(int basePeriod) {
+void Scheduler::init(const int basePeriod) {
   this->basePeriod = basePeriod;
   timer.setupPeriod(basePeriod);
   nTasks = 0;
 }
 
-bool Scheduler::addTask(Task *task) {
+bool Scheduler::addTask(const Task* const task) {
   if (nTasks > MAXNTASK - 1) {
     taskList[nTasks] = task;
     nTasks++;
