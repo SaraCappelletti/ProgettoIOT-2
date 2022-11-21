@@ -6,7 +6,7 @@ protected:
   const int pin;
 
 public:
-  Component(const int pin) : pin(pin) {};
+  Component(const int pin) : pin(pin) {}
 };
 
 #endif
