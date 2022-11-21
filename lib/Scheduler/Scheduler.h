@@ -12,11 +12,11 @@ class Scheduler {
 
   unsigned long basePeriod;
   int nTasks;
-  Task* taskList[MAXNTASK];
+  const Task* taskList[MAXNTASK];
   Timer timer;
 
 public:
-  void init(int basePeriod);
+  void init(const unsigned long basePeriod);
   virtual bool addTask(const Task* const task);
   virtual void schedule();
   static State getState();
