@@ -16,6 +16,6 @@ bool Task::updateAndCheckTime(const int basePeriod) {
   }
 }
 
-void Task::addComponent(const Component* component) {
+void Task::addComponent(const Component* const component) {
   Task::components[numComponents++] = component;
 }
