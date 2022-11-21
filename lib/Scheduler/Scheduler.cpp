@@ -9,7 +9,7 @@ void Scheduler::init() {
   nTasks = 0;
 }
 
-bool Scheduler::addTask(const Task* const task) {
+bool Scheduler::addTask(Task* task) {
   if (nTasks > MAXNTASK - 1) {
     taskList[nTasks++] = task;
     return true;

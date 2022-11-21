@@ -9,7 +9,7 @@ class Sonar : public Sensor {
   const int echoPin;
 
   public:
-    Sonar(const int pin); 
+    Sonar(const int trigPin, const int echoPin); 
     float read();
 };
 

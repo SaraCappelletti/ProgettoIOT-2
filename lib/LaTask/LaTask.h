@@ -7,7 +7,7 @@
 
 class LaTask : public Task {
   public:
-    LaTask(const int pin, const unsigned long period);
+    LaTask(const unsigned long period);
     void init();
     void tick();
 };

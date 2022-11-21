@@ -1,10 +1,7 @@
 #include "LaTask.h"
 #include <stdio.h>
 
-LaTask::LaTask(const int pin, const unsigned long period) : Task(period) {
-  int i;
-  /* aggiungere il led */
-}
+LaTask::LaTask(const unsigned long period) : Task(period) {}
 
 void LaTask::init() {
 }
