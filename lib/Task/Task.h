@@ -12,9 +12,9 @@ class Task {
   const Component* components[MAX_COMPONENTS];
   
   public:
-    virtual void init(const int period);
+    virtual void init(const unsigned long period);
     virtual void tick() = 0;
-    bool updateAndCheckTime(const int basePeriod);
+    bool updateAndCheckTime(const unsigned long basePeriod);
     void addComponent(const Component* const component);
 };
 
