@@ -4,7 +4,7 @@
 #include "Arduino.h"
 #include "Sensor.h"
 
-class Photoresistor : Sensor {
+class Photoresistor : protected Sensor {
   
   public:
     Photoresistor(const int pin); 

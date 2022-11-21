@@ -1,6 +1,6 @@
 #include "Sonar.h"
 
-Sonar::Sonar(const int trigPin, const int echoPin) : Sensor(trigPin), echoPin(echoPin) {};
+Sonar::Sonar(const int trigPin, const int echoPin) : Sensor(trigPin), echoPin(echoPin) {}
 
 float Sonar::read() {
   digitalWrite(pin, HIGH);
