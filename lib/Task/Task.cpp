@@ -1,9 +1,8 @@
 #include "Task.h"
 #include "Component.h"
 
-Task::Task(const unsigned long period) : myPeriod(period) {}
-
-void Task::init() {
+void Task::init(const unsigned long period) {
+  Task::myPeriod = period;
   timeElapsed = 0;
 }
 
@@ -15,8 +14,4 @@ bool Task::updateAndCheckTime(const unsigned long basePeriod) {
   } else {
     return false;
   }
-}
-
-void Task::addComponent(const Component* const component) {
-  Task::components[numComponents++] = component;
 }

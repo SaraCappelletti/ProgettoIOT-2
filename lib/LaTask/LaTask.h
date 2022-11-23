@@ -10,11 +10,15 @@
 #define T1 10000.0
 
 class LaTask : public Task {
+  const Led& led;
+  const Photoresistor& photoresistor;
+  const Pir& pir;
+  unsigned long period;
   float time = 0.0;
 
   public:
-    LaTask(const unsigned long period);
-    void init(const unsigned long period, const Led* led, const Photoresistor* photoresistor, const Pir* pir);
+    LaTask(const Led& led, const Photoresistor& photoresistor, const Pir& pir);
+    void init(const unsigned long period);
     void tick();
 };
 

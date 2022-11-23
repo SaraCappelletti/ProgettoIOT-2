@@ -6,17 +6,14 @@
 #define MAX_COMPONENTS 10
 
 class Task {
-  const unsigned long myPeriod;
-  unsigned long timeElapsed;
-  int numComponents;
-  const Component* components[MAX_COMPONENTS];
+  protected:
+    unsigned long myPeriod;
+    unsigned long timeElapsed;
   
   public:
-    Task(const unsigned long period);
-    virtual void init();
+    virtual void init(const unsigned long period);
     virtual void tick() = 0;
     bool updateAndCheckTime(const unsigned long basePeriod);
-    void addComponent(const Component* const component);
 };
 
 #endif
