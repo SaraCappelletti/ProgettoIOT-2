@@ -1,12 +1,10 @@
 #include "LaTask.h"
 #include <stdio.h>
 
-LaTask::LaTask(const unsigned long period) : Task(period) {}
+LaTask::LaTask(const Led& led, const Photoresistor& photoresistor, const Pir& pir) : led(led), photoresistor(photoresistor), pir(pir) {}
 
-void LaTask::init(const unsigned long period, const Led* led, const Photoresistor* photoresistor, const Pir* pir) {
-  Task::addComponent(led);
-  //Task::addComponent(pir);
-  //Task::addComponent(photoresistor);
+void LaTask::init(const unsigned long period) {
+  Task::init(period);
 }
 
 void LaTask::tick() {
