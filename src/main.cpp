@@ -9,8 +9,7 @@ void setup() {
   sched.init();
   const Component* la = new Led(13);
   
-  Task* t0 = new LaTask(500);
-  t0->addComponent(la);
+  Task* t0 = new LaTask(la);
   t0->init();
   sched.addTask(t0);
 }
