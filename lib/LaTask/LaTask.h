@@ -13,7 +13,6 @@ class LaTask : public Task {
   const Led& led;
   const Photoresistor& photoresistor;
   const Pir& pir;
-  unsigned long period;
   float time = 0.0;
 
   public:
