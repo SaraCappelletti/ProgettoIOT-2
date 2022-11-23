@@ -8,10 +8,10 @@
 #define T1 10000.0
 
 class LbTask : public Task {
-  const Led& led;
+  Led& led;
 
   public:
-    LbTask(const Led& led);
+    LbTask(Led& led);
     void init(const unsigned long period);
     void tick();
 };

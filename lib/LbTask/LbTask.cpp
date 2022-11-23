@@ -1,10 +1,10 @@
 #include "LbTask.h"
 #include "Led.h"
 
-LbTask::LbTask(const Led& led) : led(led) {}
+LbTask::LbTask(Led& led) : led(led) {}
 
 void LbTask::init(const unsigned long period) {
-    LbTask::period = period;
+    Task::init(period);
 }
 
 void LbTask::tick() {
@@ -13,7 +13,8 @@ void LbTask::tick() {
       led.turnOff();
       break;
     }
-    case State::NORMAL || State::PREALARM: {
+    case State::NORMAL:
+    case State::PREALARM: {
       led.turnOn();
       break;
     }

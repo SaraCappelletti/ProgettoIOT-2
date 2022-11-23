@@ -1,7 +1,7 @@
 #include "LaTask.h"
-#include <stdio.h>
+#include "Const.h"
 
-LaTask::LaTask(const Led& led, const Photoresistor& photoresistor, const Pir& pir) : led(led), photoresistor(photoresistor), pir(pir) {}
+LaTask::LaTask(Led& led, Photoresistor& photoresistor, Pir& pir) : led(led), photoresistor(photoresistor), pir(pir) {}
 
 void LaTask::init(const unsigned long period) {
   Task::init(period);
@@ -10,11 +10,12 @@ void LaTask::init(const unsigned long period) {
 void LaTask::tick() {
   switch (Scheduler::getState()) {
     case State::ALARM: {
+      led.turnOff();
       break;
     }
     default: {
       if(1)
-      /*if(photoresistor.read() > THL){
+      if(photoresistor.read() > THL){
         led.turnOff();
         return;
       }
@@ -27,7 +28,6 @@ void LaTask::tick() {
         led.turnOff();
         return;
       }
-      */
       break;
     }
   }
