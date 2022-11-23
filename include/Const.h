@@ -7,4 +7,10 @@
 #define WL2 2
 #define WLMAX 3
 
+#define LED_A 12
+#define LED_B 13
+
+#define PIR 2
+#define PHOTORESISTOR A1
+
 #endif

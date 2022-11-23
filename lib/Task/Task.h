@@ -12,7 +12,7 @@ class Task {
   
   public:
     virtual void init(const unsigned long period);
-    virtual void tick() = 0;
+    virtual void tick();
     bool updateAndCheckTime(const unsigned long basePeriod);
 };
 

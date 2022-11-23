@@ -1,17 +1,24 @@
-#include"Timer.h"
-#include"LaTask.h"
+#include "Const.h"
+
 #include "Scheduler.h"
+#include "Timer.h"
+#include "LaTask.h"
+#include "LbTask.h"
 
 Scheduler sched(50);
 
 void setup() {
-    
+  Led ledA(LED_A);
+  Led ledB(LED_B);
+
+  Photoresistor photoresistor(PHOTORESISTOR);
+  Pir pir(PIR);
+
   sched.init();
-  const Component* la = new Led(13);
   
-  Task* t0 = new LaTask(la);
-  t0->init();
-  sched.addTask(t0);
+  LaTask laTask(ledA, photoresistor, pir);
+  laTask.init(300); // TO FIX
+  sched.addTask(laTask);
 }
 
 void loop() {
