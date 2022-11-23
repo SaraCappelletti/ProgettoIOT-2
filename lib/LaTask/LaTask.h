@@ -6,6 +6,7 @@
 #include "Led.h"
 #include "Photoresistor.h"
 #include "Pir.h"
+#include "Const.h"
 
 class LaTask : public Task {
   Led& led;

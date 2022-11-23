@@ -1,5 +1,4 @@
 #include "LaTask.h"
-#include "Const.h"
 
 LaTask::LaTask(Led& led, Photoresistor& photoresistor, Pir& pir) : led(led), photoresistor(photoresistor), pir(pir) {}
 

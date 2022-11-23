@@ -1,5 +1,4 @@
 #include "LbTask.h"
-#include "Led.h"
 
 LbTask::LbTask(Led& led) : led(led) {}
 
