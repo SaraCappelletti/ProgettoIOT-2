@@ -1,15 +1,15 @@
-#ifndef __LBTASK__
-#define __LBTASK__
+#ifndef __LCTASK__
+#define __LCTASK__
 
 #include "Scheduler.h"
 #include "Task.h"
 #include "Led.h"
 
-class LbTask : public Task {
+class LcTask : public Task {
   Led& led;
 
   public:
-    LbTask(Led& led);
+    LcTask(Led& led);
     void init(const unsigned long period);
     void tick();
 };

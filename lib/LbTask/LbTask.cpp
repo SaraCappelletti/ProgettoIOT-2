@@ -9,13 +9,13 @@ void LbTask::init(const unsigned long period) {
 
 void LbTask::tick() {
   switch (Scheduler::getState()) {
-    case State::ALARM: {
-      led.turnOff();
-      break;
-    }
     case State::NORMAL:
     case State::PREALARM: {
       led.turnOn();
+      break;
+    }
+    case State::ALARM: {
+      led.turnOff();
       break;
     }
   }

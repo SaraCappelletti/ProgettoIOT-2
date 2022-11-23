@@ -9,11 +9,8 @@ void LaTask::init(const unsigned long period) {
 
 void LaTask::tick() {
   switch (Scheduler::getState()) {
-    case State::ALARM: {
-      led.turnOff();
-      break;
-    }
-    default: {
+    case State::NORMAL:
+    case State::PREALARM: {
       if(photoresistor.read() > THL){
         led.turnOff();
         return;
@@ -27,6 +24,10 @@ void LaTask::tick() {
         led.turnOff();
         return;
       }
+      break;
+    }
+    case State::ALARM: {
+      led.turnOff();
       break;
     }
   }
