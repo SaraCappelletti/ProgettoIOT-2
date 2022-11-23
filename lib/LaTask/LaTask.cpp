@@ -14,7 +14,6 @@ void LaTask::tick() {
       break;
     }
     default: {
-      if(1)
       if(photoresistor.read() > THL){
         led.turnOff();
         return;
