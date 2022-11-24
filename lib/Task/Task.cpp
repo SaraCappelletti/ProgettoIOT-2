@@ -4,6 +4,7 @@
 void Task::init(const unsigned long period) {
   Task::myPeriod = period;
   timeElapsed = 0;
+  active = true;
 }
 
 bool Task::updateAndCheckTime(const unsigned long basePeriod) {
@@ -14,4 +15,12 @@ bool Task::updateAndCheckTime(const unsigned long basePeriod) {
   } else {
     return false;
   }
+}
+
+bool Task::isActive() {
+  return active;
+}
+
+void Task::setActive(const bool active) {
+  this->active = active;
 }

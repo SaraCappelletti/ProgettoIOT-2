@@ -7,7 +7,10 @@ Pir::Pir(const int pin) : Sensor(pin) {
 bool Pir::read() {
   if (!calibrated) {
     if (millis() - time < CALIBRATION_TIME) {
-      return 0.0;
+      Serial.println("Calibrating");
+      return false;
+    } else {
+      calibrated = true;
     }
   }
   return digitalRead(pin) == HIGH ? true : false;

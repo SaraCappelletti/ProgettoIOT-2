@@ -9,11 +9,14 @@ class Task {
   protected:
     unsigned long myPeriod;
     unsigned long timeElapsed;
+    bool active;
   
   public:
     virtual void init(const unsigned long period);
     virtual void tick();
     bool updateAndCheckTime(const unsigned long basePeriod);
+    bool isActive();
+    void setActive(const bool active);
 };
 
 #endif

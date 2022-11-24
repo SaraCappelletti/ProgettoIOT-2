@@ -3,8 +3,7 @@
 
 #include "Arduino.h"
 #include "Sensor.h"
-
-#define CALIBRATION_TIME 100000 // milliseconds
+#include "Const.h"
 
 class Pir : public Sensor {
   long unsigned time = 0.0;

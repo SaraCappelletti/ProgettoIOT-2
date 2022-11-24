@@ -2,22 +2,23 @@
 #define __SCHEDULER__
 
 #include "Task.h"
-#include "Timer.h"
-#define MAXNTASK 10
+#include "Const.h"
+//#include "Timer.h"
 
 enum State {NORMAL, PREALARM, ALARM};
 
 class Scheduler {
   static State state;
 
-  const unsigned long basePeriod;
+  int basePeriod;
   int nTasks;
   Task* taskList[MAXNTASK];
-  Timer timer;
+  //Timer timer;
 
 public:
-  Scheduler(const unsigned long basePeriod);
-  void init();
+  //bool timerFlag;
+  //Scheduler();
+  void init(int basePeriod);
   virtual bool addTask(Task* task);
   virtual void schedule();
   static State getState();

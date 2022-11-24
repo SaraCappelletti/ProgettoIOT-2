@@ -10,11 +10,13 @@ void LaTask::tick() {
   switch (Scheduler::getState()) {
     case State::NORMAL:
     case State::PREALARM: {
+      Serial.println(pir->read());
       if(photoresistor->read() > THL){
         led->turnOff();
         return;
       }
       else if(pir->read()) {
+        Serial.println("LedA");
         led->turnOn();
         time = millis();
         return;

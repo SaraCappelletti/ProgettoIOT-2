@@ -6,7 +6,7 @@
 
 class Led : public Component {
   long unsigned lastTime = 0.0;
-  enum {ON, OFF} state = OFF;
+  enum {ON, OFF} state;
   
   public:
     Led(const int pin); 
