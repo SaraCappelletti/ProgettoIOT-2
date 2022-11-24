@@ -16,9 +16,9 @@ void setup() {
 
   sched.init();
   
-  LaTask laTask(ledA, photoresistor, pir);
+  LaTask laTask(&ledA, &photoresistor, &pir);
   laTask.init(300); // TO FIX
-  sched.addTask(laTask);
+  sched.addTask(&laTask);
 }
 
 void loop() {

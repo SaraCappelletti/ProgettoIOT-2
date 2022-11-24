@@ -1,6 +1,6 @@
 #include "LcTask.h"
 
-LcTask::LcTask(Led& led) : led(led) {}
+LcTask::LcTask(Led* led) : led(led) {}
 
 void LcTask::init(const unsigned long period) {
     Task::init(period);
@@ -9,15 +9,15 @@ void LcTask::init(const unsigned long period) {
 void LcTask::tick() {
   switch (Scheduler::getState()) {
     case NORMAL: {
-      led.turnOff();
+      led->turnOff();
       break;
     }
     case State::PREALARM: {
-      led.blinking(2000, 2000);
+      led->blinking(2000, 2000);
       break;
     }
     case ALARM: {
-      led.turnOn();
+      led->turnOn();
       break;
     }
   }

@@ -6,10 +6,10 @@
 #include "Led.h"
 
 class LbTask : public Task {
-  Led& led;
+  Led* led;
 
   public:
-    LbTask(Led& led);
+    LbTask(Led* led);
     void init(const unsigned long period);
     void tick();
 };

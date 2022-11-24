@@ -7,10 +7,10 @@
 #include "Const.h"
 
 class WLTask : public Task {
-  Sonar& sonar;
+  Sonar* sonar;
 
   public:
-    WLTask(Sonar& sonar);
+    WLTask(Sonar* sonar);
     void init(const unsigned long period);
     void tick();
 };
