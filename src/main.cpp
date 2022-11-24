@@ -4,18 +4,21 @@
 #include "Timer.h"
 #include "LaTask.h"
 #include "LbTask.h"
+#include "WLTask.h"
+#include "MotorTask.h"
 
-Scheduler sched;
+Scheduler sched(100);
 
 void setup() {
   Serial.begin(9600);
   Led ledA(LED_A);
   Led ledB(LED_B);
-
+  Sonar sonar(TRIG, ECHO);
   Photoresistor photoresistor(PHOTORESISTOR);
+  ServoMotor servoMotor(SERVOMOTOR);
   Pir pir(PIR);
 
-  sched.init(100);
+  sched.init();
   
   LaTask laTask(&ledA, &photoresistor, &pir);
   laTask.init(300); // TO FIX
@@ -24,6 +27,14 @@ void setup() {
   LbTask lbTask(&ledB);
   lbTask.init(300); // TO FIX
   sched.addTask(&lbTask);
+
+  WLTask wlTask(&sonar);
+  wlTask.init(300); // TO FIX
+  sched.addTask(&wlTask);
+
+  MotorTask motorTask(&servoMotor, &sonar);
+  motorTask.init(300); // TO FIX
+  sched.addTask(&motorTask);
 }
 
 void loop() {

@@ -7,13 +7,13 @@ void WLTask::init(const unsigned long period) {
 }
 
 void WLTask::tick() {
-  if(sonar->read() < WL1) {
+  if(sonar->read() > WL1) {
     Scheduler::setState(NORMAL);
   }
-  else if (sonar->read() < WL2){
+  else if (sonar->read() > WL2){
     Scheduler::setState(PREALARM);
   }
-  else if (sonar->read() < WLMAX){
+  else if (sonar->read() > WLMAX){
     Scheduler::setState(ALARM);
   }
 }

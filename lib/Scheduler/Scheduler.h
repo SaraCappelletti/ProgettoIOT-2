@@ -17,8 +17,8 @@ class Scheduler {
 
 public:
   //bool timerFlag;
-  //Scheduler();
-  void init(int basePeriod);
+  Scheduler(const unsigned long period);
+  void init();
   virtual bool addTask(Task* task);
   virtual void schedule();
   static State getState();
