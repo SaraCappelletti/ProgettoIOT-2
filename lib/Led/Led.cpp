@@ -23,10 +23,14 @@ void Led::blinking(const unsigned long timeOn, const unsigned long timeOff) {
   unsigned long tempTime = millis();
 
   if (this->state == ON) {
-    if (tempTime - this->lastTime >= timeOn)    this->turnOff();
+    if (tempTime - this->lastTime >= timeOn) {
+      this->turnOff();
+      this->lastTime = tempTime;
+    }  
   } else {
-    if (tempTime - this->lastTime >= timeOff)   this->turnOn();
+    if (tempTime - this->lastTime >= timeOff) {
+    this->turnOn();
+    this->lastTime = tempTime;
+    }
   }
-
-  this->lastTime = tempTime;
 }

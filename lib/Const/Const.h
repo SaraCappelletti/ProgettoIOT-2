@@ -6,17 +6,22 @@
 
 //risettare livello di luce
 #define THL 4000
-#define T1 10000.0
-#define WL1 0.60
-#define WL2 0.40
-#define WLMAX 0.20
+#define T1 4000.0
+#define WL1 0.35
+#define WL2 0.25
+#define WLMAX 0.10
 
-#define LED_A 10
-#define LED_B 11
-#define TRIG 9
-#define ECHO 8
-#define SERVOMOTOR 7
+#define LED_C 11
+#define LED_B 10
+#define LED_A 9
+#define TRIG 8
+#define ECHO 7
+#define SERVOMOTOR 6
+#define POTENTIOMETER 5
+#define BUTTON 3
 #define PIR 2
-#define PHOTORESISTOR A5
+#define PHOTORESISTOR A1
+#define LCD_SDA A4
+#define LCD_SCL A5
 
 #endif

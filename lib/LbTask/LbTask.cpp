@@ -14,6 +14,7 @@ void LbTask::tick() {
       break;
     }
     case State::ALARM: {
+      Serial.println("AAAA");
       led->turnOff();
       break;
     }

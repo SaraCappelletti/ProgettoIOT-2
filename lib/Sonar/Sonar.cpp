@@ -1,4 +1,5 @@
 #include "Sonar.h"
+#include "Const.h"
 
 Sonar::Sonar(const int trigPin, const int echoPin) : Sensor(trigPin), echoPin(echoPin) {
   pinMode(trigPin, OUTPUT);
@@ -6,13 +7,15 @@ Sonar::Sonar(const int trigPin, const int echoPin) : Sensor(trigPin), echoPin(ec
 }
 
 float Sonar::read() {
-  /*digitalWrite(pin, HIGH);
+  digitalWrite(pin,LOW);
+  delayMicroseconds(3);
+  digitalWrite(pin,HIGH);
   delayMicroseconds(5);
-  digitalWrite(pin, LOW);
+  digitalWrite(pin,LOW);
 
   float tUS = pulseIn(echoPin, HIGH);
   float t = tUS / 1000.0 / 1000.0 / 2;
   float distance = t*vs;
-  return distance;*/
-  return 0.3;
+  Serial.println(distance);
+  return distance < WLMAX ? WLMAX : distance;
 }

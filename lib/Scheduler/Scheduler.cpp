@@ -45,4 +45,6 @@ void Scheduler::schedule(){
 
 State Scheduler::getState() { return Scheduler::state; }
 
-void Scheduler::setState(const State state) { Scheduler::state = state; }
+void Scheduler::setState(const State st) {
+  Scheduler::state = st;
+}
