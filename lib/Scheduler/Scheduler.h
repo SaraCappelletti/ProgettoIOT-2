@@ -22,6 +22,7 @@ public:
   virtual bool addTask(Task* task);
   virtual void schedule();
   static State getState();
+  static const char* getStateToString();
   static void setState(const State state);
 };
 

@@ -45,6 +45,12 @@ void Scheduler::schedule(){
 
 State Scheduler::getState() { return Scheduler::state; }
 
+const char* Scheduler::getStateToString(){
+  return Scheduler::state == State::NORMAL ?    "NORMAL  \0" : 
+         Scheduler::state == State::PREALARM ?  "PREALARM\0" : 
+                                                "ALARM   \0";
+}
+
 void Scheduler::setState(const State st) {
   Scheduler::state = st;
 }

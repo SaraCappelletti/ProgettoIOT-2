@@ -9,8 +9,6 @@ void WLTask::init(const unsigned long period) {
 
 void WLTask::tick() {
   const float wl = sonar->read();
-  Serial.println(Scheduler::getState());
-  Serial.println(wl);
   if(wl > WL1) {
     Scheduler::setState(NORMAL);
   } else if (wl > WL2){
@@ -18,7 +16,6 @@ void WLTask::tick() {
   } else if (wl > WLMAX){
     Scheduler::setState(ALARM);
   }
-  Serial.println(Scheduler::getState());
   /*
   const unsigned long wl = sonar->read();
   Scheduler::setState(wl > WLMAX ? ALARM :

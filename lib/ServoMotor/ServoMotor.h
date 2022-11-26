@@ -4,14 +4,14 @@
 #include "Arduino.h"
 #include "Sensor.h"
 #include "Const.h"
-#include "Servo.h"
+#include "ServoTimer2.h"
 
-class ServoMotor : public Component, Servo {
+class ServoMotor : public Component, ServoTimer2 {
   //int prev = 0;
 
   public:
     ServoMotor(const int pin); 
-    void move(int waterLevel);
+    void move(float waterLevel);
 };
 
 #endif

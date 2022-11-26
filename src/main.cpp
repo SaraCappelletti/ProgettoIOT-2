@@ -6,6 +6,7 @@
 #include "LbTask.h"
 #include "LcTask.h"
 #include "WLTask.h"
+#include "LcdTask.h"
 #include "MotorTask.h"
 
 Scheduler sched(100);
@@ -19,6 +20,7 @@ void setup() {
   Photoresistor photoresistor(PHOTORESISTOR);
   ServoMotor servoMotor(SERVOMOTOR);
   Pir pir(PIR);
+  Lcd lcd(LCD_ADDRESS, LCD_COLUMNS, LCD_ROWS);
 
   sched.init();
   
@@ -38,9 +40,13 @@ void setup() {
   wlTask.init(300); // TO FIX
   sched.addTask(&wlTask);
 
-  /*MotorTask motorTask(&servoMotor, &sonar);
+  LcdTask lcdTask(&lcd, &sonar);
+  lcdTask.init(300); // TO FIX
+  sched.addTask(&lcdTask);
+
+  MotorTask motorTask(&servoMotor, &sonar);
   motorTask.init(300); // TO FIX
-  sched.addTask(&motorTask);*/
+  //sched.addTask(&motorTask);
 }
 
 void loop() {
