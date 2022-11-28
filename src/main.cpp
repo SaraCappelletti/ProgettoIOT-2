@@ -8,6 +8,7 @@
 #include "WLTask.h"
 #include "LcdTask.h"
 #include "MotorTask.h"
+#include "ManualTask.h"
 
 Scheduler sched(SCHEDULER_PERIOD);
 
@@ -18,6 +19,8 @@ void setup() {
   Led ledC(LED_C);
   Sonar sonar(TRIG, ECHO);
   Photoresistor photoresistor(PHOTORESISTOR);
+  Potentiometer potentiometer(POTENTIOMETER);
+  Button button(BUTTON);
   ServoMotor servoMotor(SERVOMOTOR);
   Pir pir(PIR);
   Lcd lcd(LCD_ADDRESS, LCD_COLUMNS, LCD_ROWS);
@@ -47,6 +50,10 @@ void setup() {
   MotorTask motorTask(&servoMotor, &sonar);
   motorTask.init(MOTOR_PERIOD); // TO FIX
   sched.addTask(&motorTask);
+
+  ManualTask manualTask(&potentiometer, &sonar, &button);
+  manualTask.init(MOTOR_PERIOD); // TO FIX
+  sched.addTask(&manualTask);
 }
 
 void loop() {
