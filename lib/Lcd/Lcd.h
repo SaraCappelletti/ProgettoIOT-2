@@ -13,7 +13,7 @@ class Lcd : public LiquidCrystal_I2C {
     Lcd(const uint8_t address, const uint8_t columns, const uint8_t rows); 
     void turnOn();
     void turnOff();
-    void write(const int col, const int row, const char* phrase);
+    void write(const int col, const int row, String phrase);
 };
 
 #endif

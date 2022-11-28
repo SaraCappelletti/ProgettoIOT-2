@@ -6,8 +6,9 @@
 #include "Const.h"
 #include "ServoTimer2.h"
 
-class ServoMotor : public Component, ServoTimer2 {
+class ServoMotor : public Component {
   //int prev = 0;
+  ServoTimer2 motor; 
 
   public:
     ServoMotor(const int pin); 

@@ -1,13 +1,12 @@
 #include "ServoMotor.h"
 
-ServoMotor::ServoMotor(const int pin) : Component(pin) {}
+ServoMotor::ServoMotor(const int pin) : Component(pin) {
+    motor.attach(pin);
+}
 
 void ServoMotor::move(float waterLevel){
-  int angle = map(waterLevel, WLMAX, WL1, 0, 180);
-  this->attach(pin);
-  float coeff = (2250.0-750.0)/180;
-  this->write(750 + angle*coeff);
-  //prev = angle;
-  this->detach();
-
+  int angle = map(waterLevel*100, WLMAX*100, WL2*100, 180, 0);
+  Serial.println(angle);
+  float coeff = ((float)MAX_PULSE_WIDTH-(float)MIN_PULSE_WIDTH)/180;
+  motor.write(MIN_PULSE_WIDTH + angle*coeff);
 }

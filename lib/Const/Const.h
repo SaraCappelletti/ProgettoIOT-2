@@ -9,15 +9,15 @@
 #define T1 4000.0
 #define WL1 0.25
 #define WL2 0.15
-#define WLMAX 0.05
+#define WLMAX 0.02
 
 #define LED_C 11
 #define LED_B 10
 #define LED_A 9
 #define TRIG 8
 #define ECHO 7
-#define SERVOMOTOR 6
 #define POTENTIOMETER 5
+#define SERVOMOTOR 4
 #define BUTTON 3
 #define PIR 2
 #define PHOTORESISTOR A1

@@ -19,7 +19,7 @@ void Lcd::turnOff(){
     }
 }
 
-void Lcd::write(const int col, const int row, const char* phrase) {
+void Lcd::write(const int col, const int row,  String phrase) {
   this->setCursor(col, row);
   this->print(phrase);
 }

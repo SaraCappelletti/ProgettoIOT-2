@@ -46,7 +46,7 @@ void setup() {
 
   MotorTask motorTask(&servoMotor, &sonar);
   motorTask.init(300); // TO FIX
-  //sched.addTask(&motorTask);
+  sched.addTask(&motorTask);
 }
 
 void loop() {
