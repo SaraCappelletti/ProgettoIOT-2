@@ -8,9 +8,6 @@ void MotorTask::init(const unsigned long period) {
 
 void MotorTask::tick() {
   if (Scheduler::getState() == State::ALARM) {
-    Serial.println("Tick");
-    float tmp = sonar->read();
-    Serial.println(tmp);
-    motor->move(tmp);
+    motor->move(sonar->read());
   }
 }

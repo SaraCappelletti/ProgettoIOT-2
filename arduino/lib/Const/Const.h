@@ -7,6 +7,7 @@
 //risettare livello di luce
 #define THL 4000
 #define T1 4000.0
+#define WLMIN 1.00
 #define WL1 0.25
 #define WL2 0.15
 #define WLMAX 0.02
@@ -33,7 +34,8 @@
 #define SONAR_NORMAL_PERIOD 300
 #define SONAR_PREALARM_PERIOD 200
 #define SONAR_ALARM_PERIOD 100 
-#define MOTOR_PERIOD 300
+#define MOTOR_PERIOD 200
 #define LCD_PERIOD 100
+#define COMMUNICATION_PERIOD 100
 
 #endif

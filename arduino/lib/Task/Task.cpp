@@ -17,7 +17,7 @@ bool Task::updateAndCheckTime(const unsigned long basePeriod) {
   }
 }
 
-void Task::setPeriod(const int period){
+void Task::setPeriod(const unsigned long period){
   if(this->myPeriod != period){
     this->myPeriod = period;
   }
