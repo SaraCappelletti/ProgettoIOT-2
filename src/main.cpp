@@ -9,7 +9,7 @@
 #include "LcdTask.h"
 #include "MotorTask.h"
 
-Scheduler sched(100);
+Scheduler sched(SCHEDULER_PERIOD);
 
 void setup() {
   Serial.begin(9600);
@@ -25,27 +25,27 @@ void setup() {
   sched.init();
   
   LaTask laTask(&ledA, &photoresistor, &pir);
-  laTask.init(300); // TO FIX
+  laTask.init(LIGHT_PERIOD); // TO FIX
   sched.addTask(&laTask);
 
   LbTask lbTask(&ledB);
-  lbTask.init(300); // TO FIX
+  lbTask.init(LIGHT_PERIOD); // TO FIX
   sched.addTask(&lbTask);
 
   LcTask lcTask(&ledC);
-  lcTask.init(300); // TO FIX
+  lcTask.init(LIGHT_PERIOD); // TO FIX
   sched.addTask(&lcTask);
 
   WLTask wlTask(&sonar);
-  wlTask.init(300); // TO FIX
+  wlTask.init(SONAR_NORMAL_PERIOD); // TO FIX
   sched.addTask(&wlTask);
 
   LcdTask lcdTask(&lcd, &sonar);
-  lcdTask.init(300); // TO FIX
+  lcdTask.init(LCD_PERIOD); // TO FIX
   sched.addTask(&lcdTask);
 
   MotorTask motorTask(&servoMotor, &sonar);
-  motorTask.init(300); // TO FIX
+  motorTask.init(MOTOR_PERIOD); // TO FIX
   sched.addTask(&motorTask);
 }
 

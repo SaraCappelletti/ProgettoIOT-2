@@ -11,10 +11,13 @@ void WLTask::tick() {
   const float wl = sonar->read();
   if(wl > WL1) {
     Scheduler::setState(NORMAL);
+    Task::setPeriod(SONAR_NORMAL_PERIOD);
   } else if (wl > WL2){
     Scheduler::setState(PREALARM);
+    Task::setPeriod(SONAR_PREALARM_PERIOD);
   } else if (wl > WLMAX){
     Scheduler::setState(ALARM);
+    Task::setPeriod(SONAR_ALARM_PERIOD);
   }
   /*
   const unsigned long wl = sonar->read();
