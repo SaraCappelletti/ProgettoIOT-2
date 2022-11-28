@@ -28,4 +28,12 @@
 #define LCD_COLUMNS (uint8_t)20
 #define LCD_ROWS (uint8_t)4
 
+#define SCHEDULER_PERIOD 100
+#define LIGHT_PERIOD 200
+#define SONAR_NORMAL_PERIOD 300
+#define SONAR_PREALARM_PERIOD 200
+#define SONAR_ALARM_PERIOD 100 
+#define MOTOR_PERIOD 300
+#define LCD_PERIOD 100
+
 #endif

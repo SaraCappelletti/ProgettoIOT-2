@@ -37,7 +37,7 @@ void Scheduler::schedule(){
   }
   timerFlag = false;
   for (int i = 0; i < nTasks; i++){
-    if (taskList[i]->isActive() && taskList[i]->updateAndCheckTime(basePeriod)){
+    if (taskList[i]->updateAndCheckTime(basePeriod)){
       taskList[i]->tick();
     }
   }
@@ -52,5 +52,7 @@ const char* Scheduler::getStateToString(){
 }
 
 void Scheduler::setState(const State st) {
-  Scheduler::state = st;
+  if(Scheduler::state != st){
+    Scheduler::state = st;
+  }
 }

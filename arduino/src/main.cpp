@@ -8,8 +8,9 @@
 #include "WLTask.h"
 #include "LcdTask.h"
 #include "MotorTask.h"
+#include "ManualTask.h"
 
-Scheduler sched(100);
+Scheduler sched(SCHEDULER_PERIOD);
 
 void setup() {
   Serial.begin(9600);
@@ -18,6 +19,8 @@ void setup() {
   Led ledC(LED_C);
   Sonar sonar(TRIG, ECHO);
   Photoresistor photoresistor(PHOTORESISTOR);
+  Potentiometer potentiometer(POTENTIOMETER);
+  Button button(BUTTON);
   ServoMotor servoMotor(SERVOMOTOR);
   Pir pir(PIR);
   Lcd lcd(LCD_ADDRESS, LCD_COLUMNS, LCD_ROWS);
@@ -25,28 +28,32 @@ void setup() {
   sched.init();
   
   LaTask laTask(&ledA, &photoresistor, &pir);
-  laTask.init(300); // TO FIX
+  laTask.init(LIGHT_PERIOD); // TO FIX
   sched.addTask(&laTask);
 
   LbTask lbTask(&ledB);
-  lbTask.init(300); // TO FIX
+  lbTask.init(LIGHT_PERIOD); // TO FIX
   sched.addTask(&lbTask);
 
   LcTask lcTask(&ledC);
-  lcTask.init(300); // TO FIX
+  lcTask.init(LIGHT_PERIOD); // TO FIX
   sched.addTask(&lcTask);
 
   WLTask wlTask(&sonar);
-  wlTask.init(300); // TO FIX
+  wlTask.init(SONAR_NORMAL_PERIOD); // TO FIX
   sched.addTask(&wlTask);
 
   LcdTask lcdTask(&lcd, &sonar);
-  lcdTask.init(300); // TO FIX
+  lcdTask.init(LCD_PERIOD); // TO FIX
   sched.addTask(&lcdTask);
 
   MotorTask motorTask(&servoMotor, &sonar);
-  motorTask.init(300); // TO FIX
+  motorTask.init(MOTOR_PERIOD); // TO FIX
   sched.addTask(&motorTask);
+
+  ManualTask manualTask(&potentiometer, &sonar, &button);
+  manualTask.init(MOTOR_PERIOD); // TO FIX
+  sched.addTask(&manualTask);
 }
 
 void loop() {

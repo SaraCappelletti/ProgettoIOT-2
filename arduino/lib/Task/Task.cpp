@@ -17,10 +17,8 @@ bool Task::updateAndCheckTime(const unsigned long basePeriod) {
   }
 }
 
-bool Task::isActive() {
-  return active;
-}
-
-void Task::setActive(const bool active) {
-  this->active = active;
+void Task::setPeriod(const int period){
+  if(this->myPeriod != period){
+    this->myPeriod = period;
+  }
 }

@@ -15,8 +15,7 @@ class Task {
     virtual void init(const unsigned long period);
     virtual void tick();
     bool updateAndCheckTime(const unsigned long basePeriod);
-    bool isActive();
-    void setActive(const bool active);
+    void setPeriod(const int period);
 };
 
 #endif
