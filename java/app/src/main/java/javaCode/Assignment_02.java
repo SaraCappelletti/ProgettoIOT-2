@@ -1,4 +1,6 @@
-public class TestPingPong {
+package javaCode;
+
+public class Assignment_02 {
 	public static void main(String[] args) throws Exception {
 		CommChannel channel = new SerialCommChannel(args[0],9600);	
 		// CommChannel channel = new SerialCommChannel("/dev/cu.usbmodem1411",9600);	
