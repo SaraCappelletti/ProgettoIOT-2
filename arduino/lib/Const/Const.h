@@ -4,14 +4,14 @@
 #define MAXNTASK 10
 #define CALIBRATION_TIME 1000 // milliseconds
 
-//risettare livello di luce
-#define THL 4000
+#define THL 800
 #define T1 4000.0
 #define TBUTTON 200
 #define WLMIN 1.00
 #define WL1 0.25
 #define WL2 0.15
 #define WLMAX 0.02
+#define POT_SENSIBILITY 5
 
 #define LED_C 11
 #define LED_B 10
