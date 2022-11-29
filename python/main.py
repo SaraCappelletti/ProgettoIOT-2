@@ -17,10 +17,10 @@ prev = 0
 def read():
     data = arduino.readline().decode().strip().split(',')
     if not data:
-        return 0, 0
+        return 0, 0, '', ''
     #data = arduino.readline().decode().strip().split(',')
     #return [float(x) for x in data.split(',')]
-    return float(data[0]), float(data[1])   
+    return float(data[0]), float(data[1]), str(data[2]), str(data[3])
 
 def send(slider_value):
     arduino.write(bytes([slider_value]))
@@ -52,13 +52,15 @@ check = CheckButtons(rax, ['Take control of the valve'], [False])
 
 
 def update():
-    x, y = read()
+    x, y, light, state = read()
     if y != 0 :
-        print(x, y)
+        #print(x, y)
         xvett.append(x)
         yvett.append(y)
         ax.plot(xvett, yvett, 'b')
-        plt.pause(0.01)
+        plt.pause(0.0001)
+    print(light)
+    print(state)
 
     
 plt.show()

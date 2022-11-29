@@ -21,7 +21,8 @@ void CommunicationTask::tick() {
 
 void CommunicationTask::send() {
     float wl = sonar->read();
-    Serial.println(millis()/1000.0 + (String)"," + wl);
+    String light = Scheduler::getState() == State::ALARM ? "Smart light OFF" : "Smart light ON";
+    Serial.println(millis()/1000.0 + (String)"," + wl + (String)"," + light + (String)"," + Scheduler::getStateToString());
 }
 
 int CommunicationTask::receive() {
