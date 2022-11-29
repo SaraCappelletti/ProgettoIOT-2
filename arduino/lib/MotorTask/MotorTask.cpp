@@ -7,7 +7,7 @@ void MotorTask::init(const unsigned long period) {
 }
 
 void MotorTask::tick() {
-  if (Scheduler::getState() == State::ALARM) {
+  if (Scheduler::getState() == State::ALARM && !Scheduler::isRemote()) {
     int angle = Scheduler::isManual() ? potentiometer->read() :
                                         map(sonar->read()*100, WLMAX*100, WL2*100, 180, 0);
     motor->move(angle);

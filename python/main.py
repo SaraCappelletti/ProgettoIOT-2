@@ -11,17 +11,18 @@ print("Ready.")
 arduino = Serial(port='COM4', baudrate=9600)
 xvett = []
 yvett = []
-slider_value = 0
+#slider_value = 0
+prev = 0
 
 def read():
-    data = ''
-    while not data:
-        data = arduino.readline().decode().strip()
-    return [float(x) for x in data.split(',')]
+    data = arduino.readline().decode().strip().split(',')
+    if not data:
+        return 0, 0
+    #data = arduino.readline().decode().strip().split(',')
+    #return [float(x) for x in data.split(',')]
+    return float(data[0]), float(data[1])   
 
 def send(slider_value):
-    print("sent", slider_value, type(slider_value))
-    #time.sleep(1)
     arduino.write(bytes([slider_value]))
 
 plt.ion()
@@ -36,9 +37,13 @@ manual_slider = Slider(
     valmax=180,
     valstep=1,
 )
+
 def on_slider(value):
+    global prev
     if check.get_status()[0]:
-        send(value)
+        prev = value
+        return prev
+
 
 manual_slider.on_changed(on_slider)
 
@@ -48,17 +53,24 @@ check = CheckButtons(rax, ['Take control of the valve'], [False])
 
 def update():
     x, y = read()
-    print(x, y)
-    xvett.append(x)
-    yvett.append(y)
+    if y != 0 :
+        print(x, y)
+        xvett.append(x)
+        yvett.append(y)
+        ax.plot(xvett, yvett, 'b')
+        plt.pause(0.01)
 
-    ax.plot(xvett, yvett, 'b')
-    plt.pause(0.00001)
     
 plt.show()
 
 while plt.get_fignums():
-    update()
+    update()  
+    if check.get_status()[0]:
+        send(prev)
+    if(len(xvett) > 100) :
+        xvett = xvett[1:]
+        yvett = yvett[1:]
+
 
 '''while True:
     y, x = read()

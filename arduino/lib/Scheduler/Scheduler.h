@@ -10,6 +10,7 @@ enum State {NORMAL, PREALARM, ALARM};
 class Scheduler {
   static State state;
   static bool manual;
+  static bool remote;
 
   int basePeriod;
   int nTasks;
@@ -27,6 +28,8 @@ public:
   static void setState(const State state);
   static bool isManual();
   static void setManual(bool manual);
+  static bool isRemote();
+  static void setRemote(bool remote);
 };
 
 #endif

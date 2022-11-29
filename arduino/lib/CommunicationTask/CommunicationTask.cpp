@@ -10,8 +10,11 @@ void CommunicationTask::tick() {
     this->send();
     if (Scheduler::getState() == State::ALARM && Scheduler::isManual() == true) {
         if (Serial.available() > 0) {
+            Scheduler::setRemote(true);
             int val = receive();
             motor->move(val);
+        } else {
+            Scheduler::setRemote(false);
         }
     }
 }

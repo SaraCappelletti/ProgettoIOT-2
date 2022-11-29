@@ -9,6 +9,7 @@ void timerHandler(void) {
 
 State Scheduler::state;
 bool Scheduler::manual;
+bool Scheduler::remote;
 
 Scheduler::Scheduler(const unsigned long basePeriod) : basePeriod(basePeriod) {}
 
@@ -16,6 +17,7 @@ void Scheduler::init() {
   timerFlag = false;
   Scheduler::state = NORMAL;
   Scheduler::manual = false;
+  Scheduler::remote = false;
   long period = 1000l*basePeriod;
   Timer1.initialize(period);
   Timer1.attachInterrupt(timerHandler);
@@ -66,4 +68,13 @@ bool Scheduler::isManual() {
 
 void Scheduler::setManual(bool manual) {
   Scheduler::manual = manual;
+}
+
+bool Scheduler::isRemote() {
+  return Scheduler::remote;
+}
+
+
+void Scheduler::setRemote(bool manual) {
+  Scheduler::remote = remote;
 }
