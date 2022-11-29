@@ -3,15 +3,15 @@
 
 volatile bool timerFlag;
 
-ISR(TIMER1_COMPA_vect){
+ISR(TIMER1_COMPA_vect) {
   timerFlag = true;
 }
 
-Timer::Timer(){
+Timer::Timer() {
   timerFlag = false;  
 }
 
-void Timer::setupFreq(int freq){
+void Timer::setupFreq(int freq) {
   
   // disabling interrupt
   cli();
@@ -41,7 +41,7 @@ void Timer::setupFreq(int freq){
 }
 
 /* period in ms */
-void Timer::setupPeriod(int period){
+void Timer::setupPeriod(int period) {
   
   // disabling interrupt
   cli();
@@ -70,9 +70,9 @@ void Timer::setupPeriod(int period){
   
 }
 
-void Timer::waitForNextTick(){
+void Timer::waitForNextTick() {
   /* wait for timer signal */
-  while (!timerFlag){}
+  while (!timerFlag) {}
   timerFlag = false;
   
 }

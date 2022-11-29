@@ -7,7 +7,7 @@ void LcdTask::init(const unsigned long period) {
 }
 
 void LcdTask::tick() {
-  switch (Scheduler::getState()){
+  switch (Scheduler::getState()) {
     case State::ALARM : {
       lcd->clear();
       lcd->turnOn();

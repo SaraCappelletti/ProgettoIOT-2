@@ -5,16 +5,16 @@ Lcd::Lcd(const uint8_t address, const uint8_t columns, const uint8_t rows) : Liq
   this->init();
 }
 
-void Lcd::turnOn(){
-    if (!on){
+void Lcd::turnOn() {
+    if (!on) {
         this->on = true;
         this->display();
         this->backlight();
     }
 }
 
-void Lcd::turnOff(){
-    if (on){
+void Lcd::turnOff() {
+    if (on) {
         this->on = false;
         this->noDisplay();
         this->noBacklight();

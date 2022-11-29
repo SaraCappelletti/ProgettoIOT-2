@@ -8,7 +8,7 @@ void CommunicationTask::init(const unsigned long period) {
 
 void CommunicationTask::tick() {
     this->send();
-    if (Scheduler::getState() == State::ALARM && Scheduler::isManual() == true){
+    if (Scheduler::getState() == State::ALARM && Scheduler::isManual() == true) {
         if (Serial.available() > 0) {
             int val = receive();
             motor->move(val);
@@ -16,11 +16,11 @@ void CommunicationTask::tick() {
     }
 }
 
-void CommunicationTask::send(){
+void CommunicationTask::send() {
     float wl = sonar->read();
     Serial.println(millis()/1000.0 + (String)"," + wl);
 }
 
-int CommunicationTask::receive(){
+int CommunicationTask::receive() {
     return Serial.read();
 }

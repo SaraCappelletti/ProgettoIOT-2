@@ -3,7 +3,7 @@
 
 volatile bool timerFlag;
 
-void timerHandler(void){
+void timerHandler(void) {
   timerFlag = true;
 }
 
@@ -22,8 +22,8 @@ void Scheduler::init() {
   nTasks = 0;
 }
 
-bool Scheduler::addTask(Task* task){
-  if (nTasks < MAXNTASK-1){
+bool Scheduler::addTask(Task* task) {
+  if (nTasks < MAXNTASK-1) {
     taskList[nTasks] = task;
     nTasks++;
     return true;
@@ -32,14 +32,14 @@ bool Scheduler::addTask(Task* task){
   }
 }
   
-void Scheduler::schedule(){   
-  while (!timerFlag){
+void Scheduler::schedule() {   
+  while (!timerFlag) {
     /*Serial.print("while: ");
     Serial.println(timerFlag);*/
   }
   timerFlag = false;
-  for (int i = 0; i < nTasks; i++){
-    if (taskList[i]->updateAndCheckTime(basePeriod)){
+  for (int i = 0; i < nTasks; i++) {
+    if (taskList[i]->updateAndCheckTime(basePeriod)) {
       taskList[i]->tick();
     }
   }
@@ -47,23 +47,23 @@ void Scheduler::schedule(){
 
 State Scheduler::getState() { return Scheduler::state; }
 
-const char* Scheduler::getStateToString(){
+const char* Scheduler::getStateToString() {
   return Scheduler::state == State::NORMAL ?    "NORMAL  \0" : 
          Scheduler::state == State::PREALARM ?  "PREALARM\0" : 
                                                 "ALARM   \0";
 }
 
 void Scheduler::setState(const State st) {
-  if (Scheduler::state != st){
+  if (Scheduler::state != st) {
     Scheduler::state = st;
   }
 }
 
-bool Scheduler::isManual(){
+bool Scheduler::isManual() {
   return Scheduler::manual;
 }
 
 
-void Scheduler::setManual(bool manual){
+void Scheduler::setManual(bool manual) {
   Scheduler::manual = manual;
 }
