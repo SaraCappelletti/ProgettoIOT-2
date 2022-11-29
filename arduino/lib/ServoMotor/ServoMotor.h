@@ -8,11 +8,14 @@
 
 class ServoMotor : public Component {
   //int prev = 0;
-  ServoTimer2 motor; 
+  ServoTimer2 motor;
+  float coeff = ((float)MAX_PULSE_WIDTH-(float)MIN_PULSE_WIDTH)/180;
+  int angle = 0; 
 
   public:
     ServoMotor(const int pin); 
-    void move(float waterLevel);
+    void move(int angle);
+    int getAngle();
 };
 
 #endif

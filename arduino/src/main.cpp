@@ -44,17 +44,17 @@ void setup() {
   wlTask.init(SONAR_NORMAL_PERIOD); // TO FIX
   sched.addTask(&wlTask);
 
-  LcdTask lcdTask(&lcd, &sonar);
+  LcdTask lcdTask(&lcd, &sonar, &servoMotor);
   lcdTask.init(LCD_PERIOD); // TO FIX
   sched.addTask(&lcdTask);
 
-  MotorTask motorTask(&servoMotor, &sonar);
+  ManualTask manualTask(&button);
+  manualTask.init(MANUAL_PERIOD); // TO FIX
+  sched.addTask(&manualTask);
+
+  MotorTask motorTask(&servoMotor, &sonar, &potentiometer);
   motorTask.init(MOTOR_PERIOD); // TO FIX
   sched.addTask(&motorTask);
-
-  ManualTask manualTask(&potentiometer, &sonar, &button);
-  manualTask.init(MOTOR_PERIOD); // TO FIX
-  sched.addTask(&manualTask);
 
   CommunicationTask communicationTask(&sonar);
   communicationTask.init(COMMUNICATION_PERIOD);

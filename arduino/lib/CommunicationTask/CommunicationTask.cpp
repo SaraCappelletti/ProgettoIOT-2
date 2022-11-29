@@ -8,5 +8,5 @@ void CommunicationTask::init(const unsigned long period) {
 
 void CommunicationTask::tick() {
     float wl = sonar->read();
-    Serial.println(wl);
+    //Serial.println(wl);
 };

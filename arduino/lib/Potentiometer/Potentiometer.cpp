@@ -2,7 +2,6 @@
 
 Potentiometer::Potentiometer(const int pin) : Component(pin) {}
 
-float Potentiometer::read() {
-  // TO FIX Serial.println(analogRead(pin) / 5.7);
-  return (analogRead(pin) / 5.7);
+int Potentiometer::read() {
+  return map(analogRead(pin), 0, 1024, 0 , 180);
 }

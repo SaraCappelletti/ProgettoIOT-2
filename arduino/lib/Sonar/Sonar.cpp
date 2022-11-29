@@ -16,7 +16,6 @@ float Sonar::read() {
   float tUS = pulseIn(echoPin, HIGH);
   float t = tUS / 1000.0 / 1000.0 / 2;
   float distance = t*vs;
-  //Serial.println(distance);
   return  distance < WLMAX ? WLMAX : 
           distance > WLMIN ? WLMIN :
           distance;

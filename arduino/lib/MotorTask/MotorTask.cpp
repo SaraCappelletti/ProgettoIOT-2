@@ -1,6 +1,6 @@
 #include "MotorTask.h"
 
-MotorTask::MotorTask(ServoMotor* motor, Sonar* sonar) : motor(motor), sonar(sonar) {}
+MotorTask::MotorTask(ServoMotor* motor, Sonar* sonar, Potentiometer* potentiometer) : motor(motor), sonar(sonar), potentiometer(potentiometer) {}
 
 void MotorTask::init(const unsigned long period) {
     Task::init(period);
@@ -8,6 +8,8 @@ void MotorTask::init(const unsigned long period) {
 
 void MotorTask::tick() {
   if (Scheduler::getState() == State::ALARM) {
-    motor->move(sonar->read());
+    int angle = Scheduler::isManual() ? potentiometer->read() :
+                                        map(sonar->read()*100, WLMAX*100, WL2*100, 180, 0);
+    motor->move(angle);
   }
 }

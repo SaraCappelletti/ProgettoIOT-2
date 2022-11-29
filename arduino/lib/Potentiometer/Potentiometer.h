@@ -8,7 +8,7 @@ class Potentiometer : public Component {
   
   public:
     Potentiometer(const int pin); 
-    float read();
+    int read();
 };
 
 #endif

@@ -7,6 +7,7 @@
 //risettare livello di luce
 #define THL 4000
 #define T1 4000.0
+#define TBUTTON 200
 #define WLMIN 1.00
 #define WL1 0.25
 #define WL2 0.15
@@ -17,11 +18,11 @@
 #define LED_A 9
 #define TRIG 8
 #define ECHO 7
-#define POTENTIOMETER 5
 #define SERVOMOTOR 4
 #define BUTTON 3
 #define PIR 2
 #define PHOTORESISTOR A1
+#define POTENTIOMETER A2
 #define LCD_SDA A4
 #define LCD_SCL A5
 
@@ -34,8 +35,9 @@
 #define SONAR_NORMAL_PERIOD 300
 #define SONAR_PREALARM_PERIOD 200
 #define SONAR_ALARM_PERIOD 100 
+#define MANUAL_PERIOD 20
 #define MOTOR_PERIOD 200
-#define LCD_PERIOD 100
+#define LCD_PERIOD 200
 #define COMMUNICATION_PERIOD 100
 
 #endif
