@@ -1,6 +1,7 @@
 #ifndef __CommunicationTask__
 #define __CommunicationTask__
 
+#include "Arduino.h"
 #include "Task.h"
 #include "Sonar.h"
 
