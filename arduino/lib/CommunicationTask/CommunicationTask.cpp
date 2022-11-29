@@ -1,10 +1,10 @@
 #include "CommunicationTask.h"
 
-CommunicationTask::CommunicationTask(Sonar* sonar, ServoMotor* motor) : Task(), sonar(sonar), motor(motor) {};
+CommunicationTask::CommunicationTask(Sonar* sonar, ServoMotor* motor) : sonar(sonar), motor(motor) {};
 
 void CommunicationTask::init(const unsigned long period) {
     Task::init(period);
-};
+}
 
 void CommunicationTask::tick() {
     this->send();
@@ -14,7 +14,7 @@ void CommunicationTask::tick() {
             motor->move(val);
         }
     }
-};
+}
 
 void CommunicationTask::send(){
     float wl = sonar->read();
@@ -23,5 +23,4 @@ void CommunicationTask::send(){
 
 int CommunicationTask::receive(){
     return Serial.read();
-
 }
