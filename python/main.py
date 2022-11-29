@@ -11,34 +11,44 @@ print("Ready.")
 arduino = Serial(port='COM4', baudrate=9600)
 xvett = []
 yvett = []
+slider_value = 0
+
 def read():
-    data = arduino.readline().decode().strip().split(",")
-    return float(data[0]), float(data[1])
+    data = ''
+    while not data:
+        data = arduino.readline().decode().strip()
+    return [float(x) for x in data.split(',')]
+
+def send(slider_value):
+    print("sent", slider_value, type(slider_value))
+    #time.sleep(1)
+    arduino.write(bytes([slider_value]))
 
 plt.ion()
 fig, ax = plt.subplots()
 
 fig.subplots_adjust(bottom=0.3)
-axfreq = fig.add_axes([0.25, 0.05, 0.65, 0.03])
-freq_slider = Slider(
-    ax=axfreq,
+axman = fig.add_axes([0.25, 0.05, 0.65, 0.03])
+manual_slider = Slider(
+    ax=axman,
     label='Degrees ',
     valmin=0,
     valmax=180,
     valstep=1,
 )
 def on_slider(value):
-    print(value)
-freq_slider.on_changed(on_slider)
+    if check.get_status()[0]:
+        send(value)
 
-rax = plt.axes([0.1, 0.12, 0.5, 0.1])
+manual_slider.on_changed(on_slider)
+
+rax = plt.axes([0.1, 0.1, 0.15, 0.2], frameon=False)
 check = CheckButtons(rax, ['Take control of the valve'], [False])
 
+
 def update():
-    #x = xdata[-1]+1
-    #xdata.append(x)
-    #ydata.append(np.sin(x/10))
-    y, x = read()
+    x, y = read()
+    print(x, y)
     xvett.append(x)
     yvett.append(y)
 

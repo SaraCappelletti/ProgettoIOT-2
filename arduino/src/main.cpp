@@ -56,7 +56,7 @@ void setup() {
   motorTask.init(MOTOR_PERIOD); // TO FIX
   sched.addTask(&motorTask);
 
-  CommunicationTask communicationTask(&sonar);
+  CommunicationTask communicationTask(&sonar, &servoMotor);
   communicationTask.init(COMMUNICATION_PERIOD);
   sched.addTask(&communicationTask);
 }

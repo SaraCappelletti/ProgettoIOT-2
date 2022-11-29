@@ -1,12 +1,27 @@
 #include "CommunicationTask.h"
 
-CommunicationTask::CommunicationTask(Sonar* sonar) : Task(), sonar(sonar) {};
+CommunicationTask::CommunicationTask(Sonar* sonar, ServoMotor* motor) : Task(), sonar(sonar), motor(motor) {};
 
 void CommunicationTask::init(const unsigned long period) {
     Task::init(period);
 };
 
 void CommunicationTask::tick() {
-    float wl = sonar->read();
-    Serial.println(wl + (String)"," + millis()/1000.0);
+    this->send();
+    if(Scheduler::getState() == State::ALARM && Scheduler::isManual() == true){
+        if(Serial.available() > 0) {
+            int val = receive();
+            motor->move(val);
+        }
+    }
 };
+
+void CommunicationTask::send(){
+    float wl = sonar->read();
+    Serial.println(millis()/1000.0 + (String)"," + wl);
+}
+
+int CommunicationTask::receive(){
+    return Serial.read();
+
+}
