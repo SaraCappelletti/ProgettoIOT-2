@@ -9,7 +9,7 @@ void Task::init(const unsigned long period) {
 
 bool Task::updateAndCheckTime(const unsigned long basePeriod) {
   timeElapsed += basePeriod;
-  if(timeElapsed >= myPeriod) {
+  if (timeElapsed >= myPeriod) {
     timeElapsed = 0;
     return true;
   } else {
@@ -18,7 +18,7 @@ bool Task::updateAndCheckTime(const unsigned long basePeriod) {
 }
 
 void Task::setPeriod(const unsigned long period){
-  if(this->myPeriod != period){
+  if (this->myPeriod != period){
     this->myPeriod = period;
   }
 }

@@ -5,7 +5,7 @@ Button::Button(const int pin) : Component(pin) {
 }
 
 bool Button::isPressed(){
-  if(millis() - time > TBUTTON){
+  if (millis() - time > TBUTTON){
     int buttonState = digitalRead(pin);
     if (buttonState == LOW){
         return pressed;

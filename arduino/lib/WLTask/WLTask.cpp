@@ -9,7 +9,7 @@ void WLTask::init(const unsigned long period) {
 
 void WLTask::tick() {
   const float wl = sonar->read();
-  if(wl > WL1) {
+  if (wl > WL1) {
     Scheduler::setState(NORMAL);
     Task::setPeriod(SONAR_NORMAL_PERIOD);
   } else if (wl > WL2){

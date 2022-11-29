@@ -6,7 +6,7 @@ Lcd::Lcd(const uint8_t address, const uint8_t columns, const uint8_t rows) : Liq
 }
 
 void Lcd::turnOn(){
-    if(!on){
+    if (!on){
         this->on = true;
         this->display();
         this->backlight();
@@ -14,7 +14,7 @@ void Lcd::turnOn(){
 }
 
 void Lcd::turnOff(){
-    if(on){
+    if (on){
         this->on = false;
         this->noDisplay();
         this->noBacklight();

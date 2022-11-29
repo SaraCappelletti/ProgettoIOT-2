@@ -54,7 +54,7 @@ const char* Scheduler::getStateToString(){
 }
 
 void Scheduler::setState(const State st) {
-  if(Scheduler::state != st){
+  if (Scheduler::state != st){
     Scheduler::state = st;
   }
 }

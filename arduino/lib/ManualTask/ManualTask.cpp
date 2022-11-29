@@ -7,7 +7,7 @@ void ManualTask::init(const unsigned long period) {
 }
 
 void ManualTask::tick() {
-  if(Scheduler::getState() == State::ALARM){
+  if (Scheduler::getState() == State::ALARM){
     Scheduler::setManual(button->isPressed());
   }
 }

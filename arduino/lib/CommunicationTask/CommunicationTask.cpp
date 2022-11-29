@@ -8,8 +8,8 @@ void CommunicationTask::init(const unsigned long period) {
 
 void CommunicationTask::tick() {
     this->send();
-    if(Scheduler::getState() == State::ALARM && Scheduler::isManual() == true){
-        if(Serial.available() > 0) {
+    if (Scheduler::getState() == State::ALARM && Scheduler::isManual() == true){
+        if (Serial.available() > 0) {
             int val = receive();
             motor->move(val);
         }
