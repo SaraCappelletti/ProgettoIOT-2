@@ -12,17 +12,25 @@ xvett = []
 yvett = []
 def read():
     data = arduino.readline().decode().strip().split(",")
-    return data[0], data[1]
+    return float(data[0]), float(data[1])
 
-while True:
-    with plt.ion():
-        y, x = read()
-        xvett.append(x)
-        yvett.append(y)
-        #print(x + "aaaa" + y)
-        fig, ax = plt.subplots()
-        ax.plot(xvett, yvett)
-        plt.show()
+plt.ion()
+plt.plot([], [])
+for _ in range(1000):
+    y, x = read()
+    xvett.append(x)
+    yvett.append(y)
+    #print(x + "aaaa" + y)
+    #fig, ax = plt.subplots()
+    plt.clf()
+    plt.plot(xvett, yvett)
+    plt.draw()
+    plt.pause(0.01)
+    if(len(xvett) > 150) :
+        xvett = xvett[1:]
+        yvett = yvett[1:]
+
+input()
 
 # https://pygal.org/en/stable/
 # https://matplotlib.org/
