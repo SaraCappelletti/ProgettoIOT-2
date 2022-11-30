@@ -11,7 +11,6 @@ print("Ready.")
 arduino = Serial(port='COM4', baudrate=9600)
 xvett = []
 yvett = []
-#slider_value = 0
 prev = 0
 
 def read():
@@ -45,17 +44,14 @@ def on_slider(value):
         prev = value
         return prev
 
-
 manual_slider.on_changed(on_slider)
 
 rax = plt.axes([0.1, 0.1, 0.15, 0.2], frameon=False)
 check = CheckButtons(rax, ['Take control of the valve'], [False])
 
-
 def update():
     x, y, light, state = read()
     if y != 0 :
-        #print(x, y)
         xvett.append(x)
         yvett.append(y)
         ax.plot(xvett, yvett, 'b')
@@ -63,7 +59,6 @@ def update():
         ax.set_title(light)
         plt.pause(0.0001)
 
-    
 plt.show()
 
 while plt.get_fignums():

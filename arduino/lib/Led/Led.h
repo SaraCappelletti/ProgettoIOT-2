@@ -13,6 +13,7 @@ class Led : public Component {
     void turnOn();
     void turnOff();
     void blinking(const long unsigned timeOn, const long unsigned timeOff);
+    bool isOn();
 };
 
 #endif

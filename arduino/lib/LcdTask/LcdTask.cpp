@@ -9,7 +9,6 @@ void LcdTask::init(const unsigned long period) {
 void LcdTask::tick() {
   switch (Scheduler::getState()) {
     case State::ALARM : {
-      lcd->clear();
       lcd->turnOn();
       lcd->write(0, 0, "State: " + (String)Scheduler::getStateToString());
       lcd->write(0, 1, "Water level: " + (String)sonar->read());
@@ -17,7 +16,6 @@ void LcdTask::tick() {
       break;
     } 
     case State::PREALARM : {
-      lcd->clear();
       lcd->turnOn();
       lcd->write(0, 0, "State: " + (String)Scheduler::getStateToString());
       lcd->write(0, 1, "Water level: " + (String)sonar->read() );

@@ -34,3 +34,7 @@ void Led::blinking(const unsigned long timeOn, const unsigned long timeOff) {
     }
   }
 }
+
+bool Led::isOn() {
+  return Led::state == ON;
+}
