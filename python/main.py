@@ -71,27 +71,4 @@ while plt.get_fignums():
         send(prev)
     if(len(xvett) > 100) :
         xvett = xvett[1:]
-        yvett = yvett[1:]
-
-
-'''while True:
-    y, x = read()
-    xvett.append(x)
-    yvett.append(y)
-    #print(x + "aaaa" + y)
-    #fig, ax = plt.subplots()
-    plt.clf()
-    plt.plot(xvett, yvett)
-    plt.draw()
-    plt.pause(0.01)
-    if(len(xvett) > 100) :
-        xvett = xvett[1:]
-        yvett = yvett[1:]
-    myplot()
-
-input()
-
-# https://pygal.org/en/stable/
-# https://matplotlib.org/
-# https://seaborn.pydata.org/
-# https://bokeh.org/'''
+        yvett = yvett[1:]'
