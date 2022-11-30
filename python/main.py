@@ -28,7 +28,8 @@ def send(slider_value):
 plt.ion()
 fig, ax = plt.subplots()
 
-fig.subplots_adjust(bottom=0.3)
+fig.subplots_adjust(top=0.8, bottom=0.3)
+
 axman = fig.add_axes([0.25, 0.05, 0.65, 0.03])
 manual_slider = Slider(
     ax=axman,
@@ -58,9 +59,9 @@ def update():
         xvett.append(x)
         yvett.append(y)
         ax.plot(xvett, yvett, 'b')
+        fig.suptitle(state, fontsize=14, fontweight='bold')
+        ax.set_title(light)
         plt.pause(0.0001)
-    print(light)
-    print(state)
 
     
 plt.show()
@@ -69,6 +70,6 @@ while plt.get_fignums():
     update()  
     if check.get_status()[0]:
         send(prev)
-    if(len(xvett) > 100) :
-        xvett = xvett[1:]
-        yvett = yvett[1:]'
+    #if(len(xvett) > 100) :
+        #xvett = xvett[1:]
+        #yvett = yvett[1:]'
